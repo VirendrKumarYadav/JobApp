@@ -1,13 +1,13 @@
 const JobModal = require("../modal/jobs");
 
 //---------------------POST -----------------------------
-const createJobs = (req, res) => {
+const createJobs = async(req, res) => {
   // To insert data in the database
   console.log(req.body);
-  const insertData = new JobModal(req.body);
-  insertData.save();
+   const newlyInsertedJob = await insertData.save();
   res.json({
     sucess: true,
+    created_id: newlyInsertedJob,
     massage: "Job profile is created Sucessfully",
   });
 };
