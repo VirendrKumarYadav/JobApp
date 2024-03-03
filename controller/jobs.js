@@ -1,15 +1,23 @@
-const JobModal = require("../modal/jobs");
+const JobModel = require("../modal/jobs");
 
 //---------------------POST -----------------------------
 const createJobs = async(req, res) => {
   // To insert data in the database
-   const newJob = new JobModel(req.body);
-   const newlyInsertedJob = await newJob.save();
-  res.json({
-    sucess: true,
-    created_id: newlyInsertedJob,
-    massage: "Job profile is created Sucessfully",
-  });
+  try {
+    console.log(req.body);
+    const newJob = new JobModel(req.body);
+    const newlyInsertedJob = await newJob.save();
+    res.json({
+      sucess: true,
+      created_id: newlyInsertedJob,
+      massage: "Job profile is created Sucessfully",
+    });
+  } catch (err) {
+      res.status(400).json({
+        success: false,
+        message: "Something went wrong,"+`::`+err.message,
+      });
+    }
 };
 
 //----------------------GET -----------------------------
