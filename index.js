@@ -7,8 +7,8 @@ dotenv.config()
 // console.log(process.env);
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/local")
-  // .connect(`mongodb+srv://${process.env.DB_User}:${process.env.DB_Pass}@cluster0.3qnwaw3.mongodb.net/`)
+  // .connect("mongodb://127.0.0.1:27017/local")
+  .connect(`mongodb+srv://${process.env.DB_User}:${process.env.DB_Pass}@cluster0.3qnwaw3.mongodb.net/`)
   .then(() => {
     console.log("Database connected Successully.");
   })
