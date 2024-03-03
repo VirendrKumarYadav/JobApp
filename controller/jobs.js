@@ -9,7 +9,7 @@ const createJobs = async(req, res) => {
     const newlyInsertedJob = await newJob.save();
     res.json({
       sucess: true,
-      created_id: newlyInsertedJob,
+      created_id: newlyInsertedJob._id,
       massage: "Job profile is created Sucessfully",
     });
   } catch (err) {
