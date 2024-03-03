@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 const dotenv=require("dotenv")
 dotenv.config()
-// console.log(process.env);
+console.log(process.env.DB_Pass);
 
 mongoose
   // .connect("mongodb://127.0.0.1:27017/local")
@@ -21,4 +21,4 @@ app.use(express.json());
 
 app.use("/api/v1/jobs", routes);
 
-app.listen(5000, () => { console.log('listening on 5000')})
+app.listen(10000, () => { console.log('listening on 10000')})
